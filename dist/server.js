@@ -28,10 +28,10 @@ const initApp = () => __awaiter(void 0, void 0, void 0, function* () {
     //Show express-list-endpoints in the mainpage
     /*app.get("/", (req: Request, res: Response) => {
       res.send(list(app));
-    });*/
-    app.get("/", (req, res) => {
-        res.send("Welcome to my server");
     });
+    app.get("/", (req: Request, res: Response) => {
+      res.send("Welcome to my server");
+    });*/
     //The app.listen() function is used to bind and listen to the connections on the specified host and port.
     app.listen(PORT, () => {
         console.log(`Server started correctly on port ${PORT}`);
