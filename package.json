@@ -2,7 +2,7 @@
   "name": "crud-api-nodejs-express-typescript-mongodb-vercel-template",
   "version": "1.0.0",
   "description": "Basic starter CRUD API REST ready to go on your vercel",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "dev": "tsc -w & nodemon dist/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
