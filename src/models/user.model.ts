@@ -1,13 +1,13 @@
 import mongoose, { Document } from "mongoose";
 
 export interface IUser extends Document {
-  champ1: string;
-  champ2: number;
+  lastname: string;
+  firstname: string;
 }
 
 const userSchema = new mongoose.Schema({
-  champ1: String,
-  champ2: Number,
+  lastname: String,
+  firstname: String,
 });
 
 export default mongoose.model<IUser>("User", userSchema);

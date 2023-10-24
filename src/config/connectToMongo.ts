@@ -1,6 +1,7 @@
 import mongoose, { ConnectOptions } from "mongoose";
 import config from "../config/config";
 
+//Function to connect to your mongoDB cluster
 const connectDb = () => {
   mongoose
     .connect(config.mongoUrl, {
@@ -8,7 +9,7 @@ const connectDb = () => {
       useUnifiedTopology: true,
     } as ConnectOptions)
     .then(() => {
-      console.log("Connexion à MongoDB réussie !");
+      console.log("Connection to MongoDB successful !");
     });
 };
 

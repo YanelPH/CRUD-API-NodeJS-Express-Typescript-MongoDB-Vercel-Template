@@ -1,54 +1,52 @@
 import { Request, Response } from "express";
 import User, { IUser } from "../models/user.model";
 
-// Route pour obtenir tous les éléments
+// Route to get all users
 const getAllUsers = async (req: Request, res: Response) => {
   try {
-    const elements = await User.find();
-    res.json(elements);
+    const allUsers = await User.find();
+    res.json(allUsers);
   } catch (error: any) {
     res.status(500).json({ message: error.message });
   }
 };
 
-// Route pour obtenir un élément par son ID
-
+// Route to get an user by ID
 const getUserByID = async (req: Request, res: Response) => {
   try {
-    const element = await User.findById(req.params.id);
-    res.json(element);
+    const userByID = await User.findById(req.params.id);
+    res.json(userByID);
   } catch (error: any) {
     res.status(500).json({ message: error.message });
   }
 };
 
-// Route pour créer un élément
+// Route to create an user in the collection
 const createUser = async (req: Request, res: Response) => {
-  const nouvelElement = new User({
-    champ1: req.body.champ1,
-    champ2: req.body.champ2,
+  const newUser = new User({
+    lastname: req.body.lastname,
+    firstname: req.body.firstname,
   });
-
   try {
-    const elementCree = await nouvelElement.save();
-    res.status(201).json(elementCree);
+    const createdUser = await newUser.save();
+    res.status(201).json(createdUser);
   } catch (error: any) {
     res.status(400).json({ message: error.message });
   }
 };
 
-// Route pour mettre à jour un élément
+// Route to update an User
 const updateUser = async (req: Request, res: Response) => {
   try {
-    const element: IUser | null = await User.findById(req.params.id);
-    if (!element) {
-      return res.status(404).json({ message: "Elément non trouvé" });
+    const userByID: IUser | null = await User.findById(req.params.id);
+    if (!userByID) {
+      return res.status(404).json({ message: "User not found" });
     }
-    element.champ1 = req.body.champ1;
-    element.champ2 = req.body.champ2;
+    userByID.lastname = req.body.lastname;
+    userByID.firstname = req.body.firstname;
 
-    const elementMisAJour = await element.save();
-    res.json(elementMisAJour);
+    const updatedUser = await userByID.save();
+    res.json(updatedUser);
   } catch (error: any) {
     res.status(400).json({ message: error.message });
   }
@@ -58,7 +56,7 @@ const updateUser = async (req: Request, res: Response) => {
 const deleteUserByID = async (req: Request, res: Response) => {
   try {
     await User.findByIdAndDelete(req.params.id);
-    res.json({ message: "Élément supprimé avec succès" });
+    res.json({ message: "User successfully deleted" });
   } catch (error: any) {
     res.status(500).json({ message: error.message });
   }
