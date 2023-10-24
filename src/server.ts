@@ -15,18 +15,20 @@ app.use(cors()); //Cross-Origin Resource Sharing (CORS) is a protocol that enabl
 app.use(express.json()); //It parses incoming requests with JSON payloads and is based on body-parser
 app.use(express.urlencoded({ extended: true })); //It parses incoming requests with URL-encoded payloads and is based on a body parser
 
-//await connectDb();
+(async () => {
+  await connectDb();
+
+  //The app.listen() function is used to bind and listen to the connections on the specified host and port.
+  app.listen(PORT, () => {
+    console.log(`Server started correctly on port ${PORT}`);
+  });
+})();
 //Router list
-//app.use("/users", userRoutes);
+app.use("/users", userRoutes);
 
 //Show express-list-endpoints in the mainpage
 app.get("/", (req: Request, res: Response) => {
   res.send(list(app));
-});
-
-//The app.listen() function is used to bind and listen to the connections on the specified host and port.
-app.listen(PORT, () => {
-  console.log(`Server started correctly on port ${PORT}`);
 });
 
 //return the app variable to use it on Vercel
