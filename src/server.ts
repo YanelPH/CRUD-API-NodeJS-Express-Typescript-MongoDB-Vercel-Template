@@ -16,7 +16,7 @@ const initApp = async () => {
   app.use(express.json()); //It parses incoming requests with JSON payloads and is based on body-parser
   app.use(express.urlencoded({ extended: true })); //It parses incoming requests with URL-encoded payloads and is based on a body parser
 
-  await connectDb();
+  //await connectDb();
   //Router list
   //app.use("/users", userRoutes);
 

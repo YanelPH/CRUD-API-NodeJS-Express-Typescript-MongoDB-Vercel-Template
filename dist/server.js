@@ -16,7 +16,6 @@ const express_1 = __importDefault(require("express"));
 const helmet_1 = __importDefault(require("helmet"));
 const cors_1 = __importDefault(require("cors"));
 const config_1 = __importDefault(require("./config/config"));
-const connectToMongo_1 = __importDefault(require("./config/connectToMongo"));
 const initApp = () => __awaiter(void 0, void 0, void 0, function* () {
     const PORT = config_1.default.port;
     const app = (0, express_1.default)(); //Express is a minimalist, flexible Node.js Web application infrastructure
@@ -25,7 +24,7 @@ const initApp = () => __awaiter(void 0, void 0, void 0, function* () {
     app.use((0, cors_1.default)()); //Cross-Origin Resource Sharing (CORS) is a protocol that enables scripts running on a browser client to interact with resources from a different origin
     app.use(express_1.default.json()); //It parses incoming requests with JSON payloads and is based on body-parser
     app.use(express_1.default.urlencoded({ extended: true })); //It parses incoming requests with URL-encoded payloads and is based on a body parser
-    yield (0, connectToMongo_1.default)();
+    //await connectDb();
     //Router list
     //app.use("/users", userRoutes);
     //Show express-list-endpoints in the mainpage
