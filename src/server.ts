@@ -21,13 +21,15 @@ const initApp = async () => {
   app.use("/users", userRoutes);
 
   //Show express-list-endpoints in the mainpage
-  app.get("/", (req: Request, res: Response) => {
+  /*app.get("/", (req: Request, res: Response) => {
     res.send(list(app));
+  });*/
+  app.get("/", (req, res) => {
+    res.send("Welcome to my server");
   });
-
   //The app.listen() function is used to bind and listen to the connections on the specified host and port.
   app.listen(PORT, () => {
-    console.log(`Serveur démarré sur le port ${PORT}`);
+    console.log(`Server started correctly on port ${PORT}`);
   });
 
   //return the app variable to use it on Vercel
