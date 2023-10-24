@@ -6,7 +6,7 @@ import { Request, Response } from "express";
 import config from "./config/config";
 import connectDb from "./config/connectToMongo";
 
-const initApp = () => {
+const initApp = async () => {
   console.log("test");
   const PORT = config.port;
   const app = express(); //Express is a minimalist, flexible Node.js Web application infrastructure
@@ -17,7 +17,7 @@ const initApp = () => {
   app.use(express.json()); //It parses incoming requests with JSON payloads and is based on body-parser
   app.use(express.urlencoded({ extended: true })); //It parses incoming requests with URL-encoded payloads and is based on a body parser
 
-  connectDb();
+  await connectDb();
   //Router list
   app.use("/users", userRoutes);
 
