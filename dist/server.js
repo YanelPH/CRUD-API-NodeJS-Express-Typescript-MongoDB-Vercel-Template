@@ -15,7 +15,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const helmet_1 = __importDefault(require("helmet"));
 const cors_1 = __importDefault(require("cors"));
-const user_routes_1 = __importDefault(require("./routes/user.routes"));
 const config_1 = __importDefault(require("./config/config"));
 const connectToMongo_1 = __importDefault(require("./config/connectToMongo"));
 const initApp = () => __awaiter(void 0, void 0, void 0, function* () {
@@ -28,7 +27,7 @@ const initApp = () => __awaiter(void 0, void 0, void 0, function* () {
     app.use(express_1.default.urlencoded({ extended: true })); //It parses incoming requests with URL-encoded payloads and is based on a body parser
     yield (0, connectToMongo_1.default)();
     //Router list
-    app.use("/users", user_routes_1.default);
+    //app.use("/users", userRoutes);
     //Show express-list-endpoints in the mainpage
     /*app.get("/", (req: Request, res: Response) => {
       res.send(list(app));
