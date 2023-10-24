@@ -7,7 +7,6 @@ import config from "./config/config";
 import connectDb from "./config/connectToMongo";
 
 const initApp = async () => {
-  console.log("test");
   const PORT = config.port;
   const app = express(); //Express is a minimalist, flexible Node.js Web application infrastructure
   const list = require("express-list-endpoints"); //Express endpoint parser to retrieve a list of the passed router with the set verbs
@@ -36,4 +35,4 @@ const initApp = async () => {
 };
 
 initApp();
-export default initApp;
+module.exports = initApp;

@@ -19,7 +19,6 @@ const user_routes_1 = __importDefault(require("./routes/user.routes"));
 const config_1 = __importDefault(require("./config/config"));
 const connectToMongo_1 = __importDefault(require("./config/connectToMongo"));
 const initApp = () => __awaiter(void 0, void 0, void 0, function* () {
-    console.log("test");
     const PORT = config_1.default.port;
     const app = (0, express_1.default)(); //Express is a minimalist, flexible Node.js Web application infrastructure
     const list = require("express-list-endpoints"); //Express endpoint parser to retrieve a list of the passed router with the set verbs
@@ -42,4 +41,4 @@ const initApp = () => __awaiter(void 0, void 0, void 0, function* () {
     return app;
 });
 initApp();
-exports.default = initApp;
+module.exports = initApp;
