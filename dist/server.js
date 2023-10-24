@@ -8,7 +8,7 @@ const config_1 = __importDefault(require("./config/config"));
 const initApp = () => {
     const PORT = config_1.default.port;
     const app = (0, express_1.default)(); //Express is a minimalist, flexible Node.js Web application infrastructure
-    const list = require("express-list-endpoints"); //Express endpoint parser to retrieve a list of the passed router with the set verbs
+    //const list = require("express-list-endpoints"); //Express endpoint parser to retrieve a list of the passed router with the set verbs
     //app.use(helmet()); //Helmet helps secure Express apps by setting HTTP response headers
     //app.use(cors()); //Cross-Origin Resource Sharing (CORS) is a protocol that enables scripts running on a browser client to interact with resources from a different origin
     //app.use(express.json()); //It parses incoming requests with JSON payloads and is based on body-parser
