@@ -14,6 +14,7 @@ const connectDb = () => {
     })
         .then(() => {
         console.log("Connection to MongoDB successful !");
-    });
+    })
+        .catch(() => console.log("Connection to MongoDB failed !"));
 };
 exports.default = connectDb;

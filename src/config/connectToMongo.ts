@@ -10,7 +10,8 @@ const connectDb = () => {
     } as ConnectOptions)
     .then(() => {
       console.log("Connection to MongoDB successful !");
-    });
+    })
+    .catch(() => console.log("Connection to MongoDB failed !"));
 };
 
 export default connectDb;
