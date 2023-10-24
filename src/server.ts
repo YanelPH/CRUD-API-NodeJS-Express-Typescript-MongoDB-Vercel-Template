@@ -6,7 +6,7 @@ import { Request, Response } from "express";
 import config from "./config/config";
 import connectDb from "./config/connectToMongo";
 
-const initApp = async () => {
+const initApp = () => {
   const PORT = config.port;
   const app = express(); //Express is a minimalist, flexible Node.js Web application infrastructure
   const list = require("express-list-endpoints"); //Express endpoint parser to retrieve a list of the passed router with the set verbs
